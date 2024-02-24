@@ -1,8 +1,6 @@
 #include <iostream>
-#include <cassert>
 #include <string>
 #include "card.h"
-#include "game.h"
 
 using namespace std;
 
@@ -14,7 +12,7 @@ string Card::getSuit(){
 	return suit;
 }
 
-Card::Card(int r, int s){
+Card::Card(int r, string s){
 	rank = r;
 	suit = s;
 }
@@ -24,8 +22,30 @@ Card::Card(){
 	suit = "";
 }
 
-ostream& operator << (ostream& os, const Card& card){
-	os << card.rank << " of " << card.suit;
+string Card::strValue(){
+
+	int r = this->rank;
+
+	if(r == 1){
+		return "Ace";
+	} else if(r == 11){
+		return "Jack";
+	} else if(r == 12){
+		return "Queen";
+	} else if(r == 13){
+		return "King";
+	} else {
+		return to_string(r);
+	}
+
+	return "";
+}
+
+ostream& operator << (ostream& os, Card& card){
+
+	os << card.strValue() << " of " << card.getSuit();
+
+	return os;
 }
 
 bool operator == (const Card& c1, const Card& c2){

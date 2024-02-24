@@ -1,4 +1,4 @@
-#ifndef player_H
+#ifndef Card_H
 
 #include <iostream>
 
@@ -6,7 +6,7 @@ using namespace std;
 
 class Card {
 	
-	friend ostream& operator<<(ostream&, const Card&);
+	friend ostream& operator<<(ostream&, Card&);
 
 	friend bool operator == (const Card&, const Card&);
 	friend bool operator > (const Card&, const Card&);
@@ -18,7 +18,9 @@ class Card {
 		
 		string getSuit();
 
-		Card(int r, int s);
+		string strValue();
+
+		Card(int r, string s);
 
 		Card();
 		
