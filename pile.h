@@ -9,15 +9,29 @@ class Pile {
 
     public:
 
-        void flipPile();            // for pile reset
+        void newPile();            // for face-up pile reset
 
         Card draw();
 
-        bool isEmpty();
+        void appFaceUp(Card& opp, Card& drw);
+
+        void appFaceDown(Card& drw);
+
+        void faceDownWon(vector<Card> oppFD);
+
+        vector<Card> faceDownLost();
+
+        bool isEmptyPile();
+
+        bool isEmptyFaceUp();
 
         vector<Card> getPile();
 
-        Pile(Deck& d, bool firstHalf);
+        void setPile(Deck d, bool firstHalf);
+
+        Pile(Deck d, bool firstHalf);
+
+        Pile();
 
     private:
 
