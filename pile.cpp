@@ -5,17 +5,28 @@
 
 void Pile::newPile(){
 
-    reverse(this->faceUp.begin(), this->faceUp.end());
+    //cout << "reaches here 1" << endl;
+    if (!faceUp.empty()) {
 
-    pile = faceUp;
-    top = pile.back();
-    faceUp.clear();
+        reverse(faceUp.begin(), faceUp.end());
+        pile = move(faceUp);
+
+        if (!pile.empty()) {
+            top = pile.back();
+        } else {
+            cerr << "Error: pile is empty after newPile()" << endl;
+        }
+    } else {
+        cerr << "Error: faceUp vector is empty in newPile()" << endl;
+    }
 }
 
 Card Pile::draw(){
 
     Card draw = this->pile.back();
+    //cout << "reaches here 6" << endl;
     this->pile.pop_back();
+    //cout << "reaches here 7" << endl;
 
     return draw;
 }
@@ -59,12 +70,12 @@ void Pile::faceDownWon(vector<Card> oppFD){
     faceDown.clear();
 }
 
-vector<Card> Pile::faceDownLost(){
+void Pile::faceDownLost(){
 
-    vector<Card> temp = faceDown;
+    //vector<Card> temp = faceDown;
     faceDown.clear();
 
-    return temp;
+    //return temp;
 }
 
 void Pile::setPile(Deck d, bool firstHalf){
@@ -90,8 +101,9 @@ Pile::Pile(Deck d, bool firstHalf){
 Pile::Pile(){
     
     vector<Card> p;
+    Card c;
 
     pile = p;
-    top = pile.back();
+    top = c;
 
 }

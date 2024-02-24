@@ -12,15 +12,6 @@ string Card::getSuit(){
 	return suit;
 }
 
-Card::Card(int r, string s){
-	rank = r;
-	suit = s;
-}
-
-Card::Card(){
-	rank = 0;
-	suit = "";
-}
 
 string Card::strValue(){
 
@@ -61,6 +52,23 @@ bool operator < (const Card& c1, const Card& c2){
 }
 
 
+Card& Card::operator = (const Card& card){
+
+	rank = card.rank;
+	suit = card.suit;
+
+	return *this;
+}
+
+Card::Card(int r, string s){
+	rank = r;
+	suit = s;
+}
+
+Card::Card(){
+	rank = 1;
+	suit = "Unknown";
+}
 
 
 

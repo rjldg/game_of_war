@@ -1,4 +1,5 @@
 #ifndef Deck_H
+#define Deck_H
 
 #include <iostream>
 #include <vector>

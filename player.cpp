@@ -6,6 +6,12 @@
 
 using namespace std;
 
+void Player::turnOverNewPile(){
+
+    //cout << "reaches here 5" << endl;
+    this->playerPile.newPile();
+}
+
 Card Player::drawTop(){
     
     return this->playerPile.draw();
@@ -26,7 +32,7 @@ void Player::playerTieWin(vector<Card> oppFD){
     this->playerPile.faceDownWon(oppFD);
 }
 
-vector<Card> Player::playerTieLose(){
+void Player::playerTieLose(){
 
     this->playerPile.faceDownLost();
 }
@@ -36,8 +42,23 @@ bool Player::hasLost(){
     return this->playerPile.isEmptyPile() && this->playerPile.isEmptyFaceUp();
 }
 
-Player::Player(string name, int n, Deck d){
+bool Player::hasEmptyPile(){
+
+    return this->playerPile.isEmptyPile();
+}
+
+bool Player::hasEmptyFaceUp(){
+
+    return this->playerPile.isEmptyFaceUp();
+}
+
+string Player::getName(){
     
+    return playerName;
+}
+
+void Player::setPlayer(string name, int n, Deck d){
+
     if(n == 1){
         this->playerPile.setPile(d, true);
     } else {
@@ -46,4 +67,18 @@ Player::Player(string name, int n, Deck d){
 
     playerName = name;
     playerNo = n;
+}
+
+Player::Player(string name, int n, Deck d){
+    
+    setPlayer(name, n, d);
+}
+
+Player::Player(){
+
+    Pile p;
+
+    playerPile = p;
+    playerName = "Unknown Player";
+    playerNo = 0;
 }

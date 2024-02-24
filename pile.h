@@ -1,4 +1,5 @@
 #ifndef Pile_H
+#define Pile_H
 
 #include <iostream>
 #include <vector>
@@ -19,7 +20,7 @@ class Pile {
 
         void faceDownWon(vector<Card> oppFD);
 
-        vector<Card> faceDownLost();
+        void faceDownLost();    // probably better if void
 
         bool isEmptyPile();
 

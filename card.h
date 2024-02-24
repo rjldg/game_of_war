@@ -1,4 +1,5 @@
 #ifndef Card_H
+#define Card_H
 
 #include <iostream>
 
@@ -14,6 +15,8 @@ class Card {
 
 	public:
 		
+		Card& operator = (const Card& card);
+
 		int getRank();
 		
 		string getSuit();
