@@ -57,17 +57,29 @@ vector<Card> Pile::getPile(){
     return pile;
 }
 
-void Pile::faceDownWon(vector<Card> oppFD){
+int Pile::getPileSize(){
+
+    return pile.size();
+}
+
+
+int Pile::getFaceUpSize(){
+
+    return faceUp.size();
+}
+
+
+void Pile::faceDownWon(vector<Card> oppFD, vector<Card> drwFD){
 
     for(Card c: oppFD){
         this->faceUp.push_back(c);
     }
 
-    for(Card c: faceDown){
+    for(Card c: drwFD){
         this->faceUp.push_back(c);
     }
 
-    faceDown.clear();
+    this->faceDown.clear();
 }
 
 void Pile::faceDownLost(){

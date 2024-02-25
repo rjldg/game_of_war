@@ -11,6 +11,8 @@ using namespace std;
 
 class Player {
 
+    friend ostream& operator<<(ostream&, Player&);
+
     public:
 
         void turnOverNewPile();
@@ -21,7 +23,7 @@ class Player {
 
         Card playerTurnLose(Card& drw);             // probably useless
 
-        void playerTieWin(vector<Card> oppFD);
+        void playerTieWin(vector<Card> oppFD, vector<Card> drwFD);
 
         void playerTieLose();               // probably better if void
 
@@ -30,6 +32,8 @@ class Player {
         bool hasEmptyPile();
 
         bool hasEmptyFaceUp();
+
+        Pile getPlayerPile();
 
         string getName();
 

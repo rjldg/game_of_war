@@ -27,9 +27,9 @@ Card Player::playerTurnLose(Card& drw){
     return drw;
 }
 
-void Player::playerTieWin(vector<Card> oppFD){
+void Player::playerTieWin(vector<Card> oppFD, vector<Card> drwFD){
 
-    this->playerPile.faceDownWon(oppFD);
+    this->playerPile.faceDownWon(oppFD, drwFD);
 }
 
 void Player::playerTieLose(){
@@ -69,6 +69,11 @@ void Player::setPlayer(string name, int n, Deck d){
     playerNo = n;
 }
 
+Pile Player::getPlayerPile(){
+
+    return playerPile;
+}
+
 Player::Player(string name, int n, Deck d){
     
     setPlayer(name, n, d);
@@ -81,4 +86,12 @@ Player::Player(){
     playerPile = p;
     playerName = "Unknown Player";
     playerNo = 0;
+}
+
+ostream& operator << (ostream& os, Player& p){
+
+	os << p.getName() << " has " << p.getPlayerPile().getPileSize() << " cards in pile and "
+       << p.getPlayerPile().getFaceUpSize() << " face-up cards.";
+
+	return os;
 }

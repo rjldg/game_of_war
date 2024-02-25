@@ -15,6 +15,8 @@ class War {
 
         void run();
 
+        void prerun();
+
         War(ifstream& inFile, string fn, Deck d);
 
         War();

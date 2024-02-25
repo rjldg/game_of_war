@@ -18,7 +18,7 @@ class Pile {
 
         void appFaceDown(Card& drw);
 
-        void faceDownWon(vector<Card> oppFD);
+        void faceDownWon(vector<Card> oppFD, vector<Card> drwFD);
 
         void faceDownLost();    // probably better if void
 
@@ -27,6 +27,10 @@ class Pile {
         bool isEmptyFaceUp();
 
         vector<Card> getPile();
+
+        int getPileSize();
+
+        int getFaceUpSize();
 
         void setPile(Deck d, bool firstHalf);
 
