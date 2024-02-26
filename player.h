@@ -21,11 +21,9 @@ class Player {
 
         void playerTurnWin(Card& opCard, Card& drw);
 
-        Card playerTurnLose(Card& drw);             // probably useless
-
         void playerTieWin(vector<Card> oppFD, vector<Card> drwFD);
 
-        void playerTieLose();               // probably better if void
+        void playerTieLose();
 
         bool hasLost();
 

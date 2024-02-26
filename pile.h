@@ -10,7 +10,7 @@ class Pile {
 
     public:
 
-        void newPile();            // for face-up pile reset
+        void newPile();             // for face-up pile reset
 
         Card draw();
 
@@ -20,7 +20,7 @@ class Pile {
 
         void faceDownWon(vector<Card> oppFD, vector<Card> drwFD);
 
-        void faceDownLost();    // probably better if void
+        void faceDownLost();
 
         bool isEmptyPile();
 

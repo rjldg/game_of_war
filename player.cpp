@@ -8,7 +8,6 @@ using namespace std;
 
 void Player::turnOverNewPile(){
 
-    //cout << "reaches here 5" << endl;
     this->playerPile.newPile();
 }
 

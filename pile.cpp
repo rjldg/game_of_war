@@ -5,7 +5,6 @@
 
 void Pile::newPile(){
 
-    //cout << "reaches here 1" << endl;
     if (!faceUp.empty()) {
 
         reverse(faceUp.begin(), faceUp.end());
@@ -24,9 +23,7 @@ void Pile::newPile(){
 Card Pile::draw(){
 
     Card draw = this->pile.back();
-    //cout << "reaches here 6" << endl;
     this->pile.pop_back();
-    //cout << "reaches here 7" << endl;
 
     return draw;
 }
