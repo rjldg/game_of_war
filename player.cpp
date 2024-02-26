@@ -21,11 +21,6 @@ void Player::playerTurnWin(Card& opCard, Card& drw){
     this->playerPile.appFaceUp(opCard, drw);
 }
 
-Card Player::playerTurnLose(Card& drw){
-
-    return drw;
-}
-
 void Player::playerTieWin(vector<Card> oppFD, vector<Card> drwFD){
 
     this->playerPile.faceDownWon(oppFD, drwFD);
