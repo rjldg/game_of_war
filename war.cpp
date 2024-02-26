@@ -19,19 +19,16 @@ void War::run(){
         if(p1.hasEmptyPile()){
             cout << p1.getName() << " has empty pile. Turning over face-up cards for a new pile..." << endl;
             p1.turnOverNewPile();
-            //cout << "reaches here 4" << endl;
         }
         
         if(p2.hasEmptyPile()){
             cout << p2.getName() << " has empty pile. Turning over face-up cards for a new pile..." << endl;
             p2.turnOverNewPile();
-            //cout << "reaches here 4" << endl;
         }
 
         c1 = p1.drawTop();
         c2 = p2.drawTop();
 
-        //cout << "reaches here inf" << endl;
 
         if(c1 < c2){
             cout << p1.getName() << " won this turn." << endl;
@@ -43,30 +40,27 @@ void War::run(){
             p2.playerTurnWin(c1, c2);
         } else {
 
-            cout << "Tie, all similar-ranked cards are faced-down. Drawing again..." << endl;
+            cout << "Tie, " << c1 << " is tied with " << c2 << ", all similar-ranked cards are faced-down. Drawing again..." << endl;
             p1FD.push_back(c1);
             p2FD.push_back(c2);
 
             if(p1.hasEmptyPile()){
                 cout << p1.getName() << " has empty pile. Turning over face-up cards for a new pile..." << endl;
                 p1.turnOverNewPile();
-                //cout << "reaches here 3" << endl;
             } 
             
             if(p2.hasEmptyPile()){
                 cout << p2.getName() << " has empty pile. Turning over face-up cards for a new pile..." << endl;
                 p2.turnOverNewPile();
-                //cout << "reaches here 3" << endl;
             }    
 
             c1 = p1.drawTop();
             c2 = p2.drawTop();
 
-            //cout << "reaches here inf" << endl;
 
             while(c1 == c2){
 
-                cout << "Tie again, faced down drawn cards. Drawing again..." << endl;     
+                cout << "Tie again, "  << c1 << " is tied with " << c2 << ", faced down drawn cards. Drawing again..." << endl;     
 
                 if(p1.hasLost() || p2.hasLost()){
                     break;
@@ -75,13 +69,11 @@ void War::run(){
                 if(p1.hasEmptyPile()){
                     cout << p1.getName() << " has empty pile. Turning over face-up cards for a new pile..." << endl;
                     p1.turnOverNewPile();
-                    //cout << "reaches here 2" << endl;
                 }
                 
                 if(p2.hasEmptyPile()){
                     cout << p2.getName() << " has empty pile. Turning over face-up cards for a new pile..." << endl;
                     p2.turnOverNewPile();
-                    //cout << "reaches here 2" << endl;
                 }
 
                 p1FD.push_back(c1);
@@ -90,7 +82,6 @@ void War::run(){
                 c1 = p1.drawTop();
                 c2 = p2.drawTop(); 
 
-                //cout << "reaches here inf" << endl;
             }
 
             if(c1 < c2){
@@ -123,7 +114,10 @@ void War::run(){
 
     
 
-    if(p1.hasLost()){
+    if(p1.hasLost() && p2.hasLost()){
+        cout << p1.getName() << " and " << p2.getName() << "are tied. Nobody won." << endl;
+    }
+    else if(p1.hasLost()){
         cout << p2.getName() << " has won!" << endl;
     } else if(p2.hasLost()){
         cout << p1.getName() << " has won!" << endl;

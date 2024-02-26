@@ -28,7 +28,6 @@ class War {
         Player p2;
 
         
-
 };
 
 #endif

@@ -41,6 +41,9 @@ int main(){
     getline(cin, filename);
     cout << "\n\n";
 
+    clearScreen();
+    cout << "\nUnshuffled Deck:\n" << endl;
+
     printCards(deck);
     
     cout << "Would you like to SHUFFLE the deck? (Y/N): ";
